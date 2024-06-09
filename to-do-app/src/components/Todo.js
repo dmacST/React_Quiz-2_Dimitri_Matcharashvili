@@ -4,10 +4,6 @@ import EditIcon from "../icons/edit.svg";
 import DeleteIcon from "../icons/delete.svg";
 import "../App.css";
 
-const deleteIconStyle = {
-  cursor: "pointer",
-};
-
 const modalStyle = {
   position: "absolute",
   top: "50%",
@@ -49,7 +45,7 @@ export const Todo = ({ task, deleteTodo, id }) => {
         style={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
+          justifyContent: "center",
           width: "100%",
         }}
       >
@@ -57,10 +53,28 @@ export const Todo = ({ task, deleteTodo, id }) => {
           {...label}
           checked={checked}
           onChange={handleChange}
-          sx={{ color: "#6C63FF", "&.Mui-checked": { color: "#6C63FF" } }}
+          sx={{
+            color: "#6C63FF",
+            "&.Mui-checked": { color: "#6C63FF" },
+            "& .MuiSvgIcon-root": {
+              transform: "scale(1.5)", // Increase overall size
+              width: "0.75em", // Make checkbox thinner
+              height: "1.5em", // Adjust height as needed
+            },
+          }}
         />
 
-        <p className={`task ${checked ? "completed" : ""}`}>{task.todoInfo}</p>
+        <p
+          className={`task ${checked ? "completed" : ""}`}
+          style={{
+            flexGrow: 1,
+            textAlign: "left",
+            margin: "0 10px",
+            fontSize: "25px",
+          }}
+        >
+          {task.todoInfo}
+        </p>
 
         <a className="edit-icon" href="#" onClick={handleOpen}>
           <img src={EditIcon} alt="Edit Icon" />

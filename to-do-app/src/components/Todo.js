@@ -38,7 +38,15 @@ const buttonContainer = {
   height: "15%",
 };
 
-export const Todo = ({ task, deleteTodo, id, isLast }) => {
+export const Todo = ({
+  task,
+  deleteTodo,
+  id,
+  isLast,
+  originalTodos,
+  filteredTodos,
+  getSearchValue,
+}) => {
   const [checked, setChecked] = useState(false);
   const [editValue, setEditValue] = useState("");
   const [open, setOpen] = useState(false);
@@ -59,6 +67,16 @@ export const Todo = ({ task, deleteTodo, id, isLast }) => {
 
   const onEditSubmit = () => {
     task.todoInfo = editValue;
+  };
+
+  const handleDelete = () => {
+    deleteTodo(id);
+    if (filteredTodos) {
+      const updatedFilteredTodos = filteredTodos.filter(
+        (todo) => todo.id !== id
+      );
+      getSearchValue(updatedFilteredTodos);
+    }
   };
 
   return (
@@ -94,7 +112,7 @@ export const Todo = ({ task, deleteTodo, id, isLast }) => {
           <img src={EditIcon} alt="Edit Icon" />
         </a>
 
-        <a className="delete-icon" href="#" onClick={() => deleteTodo(id)}>
+        <a className="delete-icon" href="#" onClick={handleDelete}>
           <img src={DeleteIcon} alt="Delete Icon" />
         </a>
 

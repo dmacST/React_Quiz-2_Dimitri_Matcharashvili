@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../App.css";
 
 const modalStyle = {
@@ -38,6 +38,13 @@ const buttonContainer = {
 const AddTodoModal = ({ open, onClose, addTodo }) => {
   const [value, setValue] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    if (open) {
+      inputRef.current.focus();
+    }
+  }, [open]);
 
   useEffect(() => {
     if (!open) {
@@ -70,6 +77,7 @@ const AddTodoModal = ({ open, onClose, addTodo }) => {
       <div style={modalStyle} className="add-todo-modal">
         <h1 style={{ fontWeight: "500" }}>NEW NOTE</h1>
         <input
+          ref={inputRef}
           className="search-input"
           type="text"
           placeholder="Input Your Note..."

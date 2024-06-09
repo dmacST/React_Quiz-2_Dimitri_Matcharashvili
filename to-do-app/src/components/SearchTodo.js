@@ -5,15 +5,15 @@ import "../App.css";
 const SearchTodo = ({ getSearchValue }) => {
   const [value, setValue] = useState("");
 
-  const handleKeyPress = (event) => {
-    if (event.key === "Enter") {
-      onSubmit();
-    }
+  const handleChange = (event) => {
+    const searchValue = event.target.value;
+    setValue(searchValue);
+    getSearchValue(searchValue.trim());
   };
 
-  const onSubmit = () => {
-    if (value.trim() !== "") {
-      getSearchValue(value.trim());
+  const handleBackspace = (event) => {
+    if (event.key === "Backspace" && value.trim() === "") {
+      getSearchValue("");
     }
   };
 
@@ -23,11 +23,15 @@ const SearchTodo = ({ getSearchValue }) => {
         type="text"
         placeholder="Search note..."
         value={value}
-        onChange={(e) => setValue(e.target.value)}
-        onKeyPress={handleKeyPress}
+        onChange={handleChange}
+        onKeyDown={handleBackspace}
         className="search-input"
       />
-      <a className="search-icon" href="#" onClick={onSubmit}>
+      <a
+        className="search-icon"
+        href="#"
+        onClick={() => getSearchValue(value.trim())}
+      >
         <img src={SearchIcon} alt="Search Icon" />
       </a>
     </div>

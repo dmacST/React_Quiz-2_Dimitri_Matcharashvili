@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../App.css";
 import DarkModeIcon from "../icons/dark-mode.svg";
 import LightModeIcon from "../icons/light-mode.svg";
 import { Todo } from "./Todo";
 import SearchTodo from "./SearchTodo";
 
-export const TodoWrapper = ({ todos, searchTodo, deleteTodo }) => {
+export const TodoWrapper = ({ todos, deleteTodo }) => {
   const [searchText, setSearchText] = useState("");
   const [darkMode, setDarkMode] = useState(false);
+  const [filteredTodos, setFilteredTodos] = useState(todos);
+
+  useEffect(() => {
+    const filtered = todos.filter((todo) =>
+      todo.todoInfo.toLowerCase().includes(searchText.toLowerCase())
+    );
+    setFilteredTodos(filtered);
+  }, [todos, searchText]);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -15,7 +23,13 @@ export const TodoWrapper = ({ todos, searchTodo, deleteTodo }) => {
   };
 
   const getSearchValue = (string) => {
-    searchTodo(string);
+    setSearchText(string);
+  };
+
+  const handleDeleteTodo = (id) => {
+    const updatedTodos = filteredTodos.filter((todo) => todo.id !== id);
+    setFilteredTodos(updatedTodos);
+    deleteTodo(id);
   };
 
   return (
@@ -41,12 +55,12 @@ export const TodoWrapper = ({ todos, searchTodo, deleteTodo }) => {
       </div>
 
       <ul className="TodoList">
-        {todos?.map((todo) => (
+        {filteredTodos.map((todo) => (
           <Todo
             task={todo}
             key={todo.id}
             id={todo.id}
-            deleteTodo={deleteTodo}
+            deleteTodo={handleDeleteTodo}
           />
         ))}
       </ul>

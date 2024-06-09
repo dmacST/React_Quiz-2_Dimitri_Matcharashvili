@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Checkbox, Input, Modal } from "@mui/material";
+import { Checkbox, Modal } from "@mui/material";
 import EditIcon from "../icons/edit.svg";
 import DeleteIcon from "../icons/delete.svg";
 import "../App.css";
@@ -38,7 +38,7 @@ const buttonContainer = {
   height: "15%",
 };
 
-export const Todo = ({ task, deleteTodo, id }) => {
+export const Todo = ({ task, deleteTodo, id, isLast }) => {
   const [checked, setChecked] = useState(false);
   const [editValue, setEditValue] = useState("");
   const [open, setOpen] = useState(false);
@@ -61,23 +61,9 @@ export const Todo = ({ task, deleteTodo, id }) => {
     task.todoInfo = editValue;
   };
 
-  const handleKeyDown = (event) => {
-    if (event.key === "Enter") {
-      setOpen(false);
-      onEditSubmit();
-    }
-  };
-
   return (
-    <li style={{ display: "flex", alignItems: "center" }}>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          width: "100%",
-        }}
-      >
+    <>
+      <div style={{ display: "flex", alignItems: "center" }}>
         <Checkbox
           {...label}
           checked={checked}
@@ -128,7 +114,12 @@ export const Todo = ({ task, deleteTodo, id }) => {
               value={editValue}
               placeholder="Edit"
               onChange={(e) => setEditValue(e.target.value)}
-              onKeyDown={handleKeyDown} // Listen for Enter key press
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  setOpen(false);
+                  onEditSubmit();
+                }
+              }}
               style={{
                 marginBottom: "20px",
                 padding: "10px",
@@ -142,7 +133,7 @@ export const Todo = ({ task, deleteTodo, id }) => {
 
             <div style={buttonContainer}>
               <button
-                onClick={handleClose} // Close modal on click
+                onClick={handleClose}
                 style={{
                   fontFamily: "Kanit",
                   fontSize: "18px",
@@ -182,6 +173,16 @@ export const Todo = ({ task, deleteTodo, id }) => {
           </div>
         </Modal>
       </div>
-    </li>
+      {isLast ? null : (
+        <hr
+          style={{
+            width: "98%",
+            margin: "10px 0",
+            borderColor: "rgba(108, 99, 255, 0.2)",
+            margin: "10px auto",
+          }}
+        />
+      )}
+    </>
   );
 };

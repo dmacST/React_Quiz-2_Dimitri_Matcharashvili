@@ -24,7 +24,7 @@ const SearchTodo = ({ getSearchValue }) => {
         placeholder="Search note..."
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        onKeyPress={handleKeyPress} // Call handleKeyPress function on key press
+        onKeyPress={handleKeyPress}
         className="search-input"
       />
       <a className="search-icon" href="#" onClick={onSubmit}>

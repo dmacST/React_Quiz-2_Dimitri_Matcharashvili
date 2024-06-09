@@ -10,6 +10,15 @@ body.dark-mode {
   color: #fff;
 }
 
+
+.add-todo-modal {
+  background-color: #fff;
+}
+
+body.dark-mode .add-todo-modal {
+  background-color: #252525;
+}
+
 body.dark-mode .search-input {
   background-color: transparent;
   color: white;

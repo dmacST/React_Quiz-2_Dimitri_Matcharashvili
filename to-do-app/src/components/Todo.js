@@ -57,8 +57,8 @@ export const Todo = ({ task, deleteTodo, id }) => {
             color: "#6C63FF",
             "&.Mui-checked": { color: "#6C63FF" },
             "& .MuiSvgIcon-root": {
-              transform: "scale(1.5)", // Increase overall size
-              height: "1.5em", // Adjust height as needed
+              transform: "scale(1.5)",
+              height: "1.5em",
             },
           }}
         />

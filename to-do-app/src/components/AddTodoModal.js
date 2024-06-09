@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "../App.css";
 
 const modalStyle = {
   position: "fixed",
@@ -7,7 +8,6 @@ const modalStyle = {
   transform: "translate(-50%, -50%)",
   width: "500px",
   height: "300px",
-  backgroundColor: "white",
   padding: "20px",
   boxShadow: "0 5px 15px rgba(0, 0, 0, 0.3)",
   zIndex: 1000,
@@ -31,14 +31,14 @@ const buttonContainer = {
   marginTop: "auto",
   display: "flex",
   justifyContent: "space-between",
-  width: "100%",
+  width: "95%",
+  height: "15%",
 };
 
 const AddTodoModal = ({ open, onClose, addTodo }) => {
   const [value, setValue] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  // Reset error message when the modal is closed
   useEffect(() => {
     if (!open) {
       setErrorMessage("");
@@ -47,7 +47,7 @@ const AddTodoModal = ({ open, onClose, addTodo }) => {
 
   const handleSubmit = () => {
     if (value.trim() === "") {
-      setErrorMessage("Please type something!");
+      setErrorMessage("Please type your note");
       return;
     }
 
@@ -56,25 +56,34 @@ const AddTodoModal = ({ open, onClose, addTodo }) => {
     setValue("");
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSubmit();
+    }
+  };
+
   if (!open) return null;
 
   return (
     <>
       <div style={overlayStyle} onClick={onClose}></div>
-      <div style={modalStyle}>
+      <div style={modalStyle} className="add-todo-modal">
         <h1 style={{ fontWeight: "500" }}>NEW NOTE</h1>
         <input
-          className="search-bar"
+          className="search-input"
           type="text"
           placeholder="Input Your Note..."
           value={value}
           onChange={(e) => setValue(e.target.value)}
+          onKeyPress={handleKeyPress} // Call handleKeyPress on key press
           style={{
             marginBottom: "20px",
             padding: "10px",
             width: "90%",
             fontFamily: "Inter",
             fontSize: "16px",
+            border: "2px solid #6C63FF",
+            borderRadius: "6px",
           }}
         />
         {errorMessage && (
@@ -88,7 +97,7 @@ const AddTodoModal = ({ open, onClose, addTodo }) => {
               fontSize: "18px",
               fontWeight: "500",
               width: "130px",
-              padding: "10px 20px",
+              padding: "4px 20px",
               backgroundColor: "transparent",
               color: "#6C63FF",
               border: "2px solid #6C63FF",
@@ -105,7 +114,7 @@ const AddTodoModal = ({ open, onClose, addTodo }) => {
               fontSize: "18px",
               fontWeight: "500",
               width: "130px",
-              padding: "10px 20px",
+              padding: "5px 20px",
               backgroundColor: "#6C63FF",
               color: "white",
               border: "none",

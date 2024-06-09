@@ -1,5 +1,3 @@
-import AddIcon from "@mui/icons-material/Add";
-import { Button } from "@mui/material";
 import AddButtonIcon from "../icons/add-button.svg";
 
 const AddTodoButton = ({ handleOpen }) => {

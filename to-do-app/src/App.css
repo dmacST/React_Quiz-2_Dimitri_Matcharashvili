@@ -142,6 +142,13 @@ ul, ol { padding:0; margin: 0 }
   cursor: pointer;
 }
 
+.edit-icon:hover img {
+  filter: brightness(0.8) sepia(100%) saturate(10000%) hue-rotate(270deg);
+}
+
+.delete-icon:hover img {
+  filter: brightness(0.8) sepia(100%) saturate(10000%) hue-rotate(0deg);
+}
 .task {
   text-align: left;
 

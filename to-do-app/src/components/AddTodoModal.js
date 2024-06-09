@@ -75,7 +75,7 @@ const AddTodoModal = ({ open, onClose, addTodo }) => {
           placeholder="Input Your Note..."
           value={value}
           onChange={(e) => setValue(e.target.value)}
-          onKeyPress={handleKeyPress} // Call handleKeyPress on key press
+          onKeyPress={handleKeyPress}
           style={{
             marginBottom: "20px",
             padding: "10px",

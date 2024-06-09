@@ -2,7 +2,7 @@ import { useState } from "react";
 import { TodoWrapper } from "./components/TodoWrapper";
 import AddTodoButton from "./components/AddTodo";
 import AddTodoModal from "./components/AddTodoModal";
-import "./App.scss";
+import "./App.css";
 
 function App() {
   const [todos, setTodos] = useState([]);

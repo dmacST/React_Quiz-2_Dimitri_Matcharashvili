@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  font-family: 'Kanit', sans-serif;
+}
+
+body.dark-mode {
+  background-color: #252525;
+  color: #fff;
+}
+
+.text-main{
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #6C63FF;
+  border-radius: 6px; 
+  width: 800px;
+}
+
+.search-icon {
+  position: absolute;
+  right: 20px;
+  width: 25px; 
+  height: auto;
+}
+
+.search-input {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  padding: 12px;
+  width: 100%; /* Adjust the width of the search bar */
+  border: none; /* Remove the borders */
+  outline: none; 
+  background-color: transparent;
+}
+
+
+.search-input:focus {
+  outline: none;
+}
+
+.search-input::placeholder {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px; 
+  color: #C3C1E5;
+  font-weight: 500;
+}
+
+.dark-mode-toggle{
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  padding-left: 20px;
+  
+}
+
+.dark-light-icon{
+  width: 45px;
+}
+
+
+
+
+
+
+

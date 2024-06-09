@@ -21,10 +21,10 @@ body.dark-mode .search-input {
 }
 
 .App {
-  text-align: center; /* Centers the text inside the div */
+  text-align: center; 
   padding: 20px;
   width: 50%;
-  margin: 0 auto; /* Centers the div horizontally */
+  margin: 0 auto; 
 }
 
 .TodoList {
@@ -69,8 +69,8 @@ ul, ol { padding:0; margin: 0 }
   font-family: 'Inter', sans-serif;
   font-size: 15px;
   padding: 12px;
-  width: 100%; /* Adjust the width of the search bar */
-  border: none; /* Remove the borders */
+  width: 100%;
+  border: none; 
   outline: none; 
   background-color: transparent;
 }
@@ -135,3 +135,10 @@ ul, ol { padding:0; margin: 0 }
 }
 
 
+.add-todo-modal {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  
+
+}

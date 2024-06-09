@@ -58,7 +58,6 @@ export const Todo = ({ task, deleteTodo, id }) => {
             "&.Mui-checked": { color: "#6C63FF" },
             "& .MuiSvgIcon-root": {
               transform: "scale(1.5)", // Increase overall size
-              width: "0.75em", // Make checkbox thinner
               height: "1.5em", // Adjust height as needed
             },
           }}

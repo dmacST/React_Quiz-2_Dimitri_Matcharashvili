@@ -16,8 +16,17 @@ body.dark-mode {
 }
 
 .App {
-  text-align: center;
+  text-align: center; /* Centers the text inside the div */
   padding: 20px;
+  width: 70%;
+  margin: 0 auto; /* Centers the div horizontally */
+}
+
+.TodoWrapper {
+  text-align: center; /* Centers the text inside the div */
+  padding: 20px;
+  width: 70%;
+  margin: 0 auto; 
 }
 
 .header {
@@ -79,6 +88,20 @@ body.dark-mode {
   width: 45px;
 }
 
+
+.add-button {
+  cursor: pointer;
+}
+
+.add-button-icon{
+  width: 60px;
+}
+
+.addButtonDiv {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
 
 
 

@@ -38,7 +38,9 @@ function App() {
         deleteTodo={deleteTodo}
       />
 
-      <AddTodoButton handleOpen={handleModalOpen} />
+      <div className="addButtonDiv">
+        <AddTodoButton handleOpen={handleModalOpen} />
+      </div>
 
       <AddTodoModal
         open={open}

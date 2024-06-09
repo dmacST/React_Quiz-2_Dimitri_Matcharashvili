@@ -1,8 +1,7 @@
 import { Button, Input } from "@mui/material";
 import { useState } from "react";
-import SearchIcon from '../icons/search.svg';
-import '../App.css'; 
-
+import SearchIcon from "../icons/search.svg";
+import "../App.css";
 
 const inputStyle = {
   border: "1px solid black",
@@ -19,20 +18,16 @@ const SearchTodo = ({ getSearchValue }) => {
 
   return (
     <div className="search-bar">
-          <input
-            type="text"
-            placeholder="Search note..."
-            onChange={(e) => setValue(e.target.value)}
-            className="search-input"
-          />
-                <a className="search-icon" href="#" onClick={() => onSubmit()}>
-                  <img  
-                    src={SearchIcon}
-                    alt="Search Icon"
-                  />
-                </a>   
-        </div>
-
+      <input
+        type="text"
+        placeholder="Search note..."
+        onChange={(e) => setValue(e.target.value)}
+        className="search-input"
+      />
+      <a className="search-icon" href="#" onClick={() => onSubmit()}>
+        <img src={SearchIcon} alt="Search Icon" />
+      </a>
+    </div>
   );
 };
 

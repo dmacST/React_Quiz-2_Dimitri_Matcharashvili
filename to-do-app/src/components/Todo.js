@@ -52,9 +52,12 @@ export const Todo = ({ task, deleteTodo, id }) => {
           width: "100%",
         }}
       >
-        <Checkbox {...label} checked={checked} onChange={handleChange} sx={{color: "#6C63FF" ,  '&.Mui-checked': {color: "#6C63FF", }       
-      
-      }}/>
+        <Checkbox
+          {...label}
+          checked={checked}
+          onChange={handleChange}
+          sx={{ color: "#6C63FF", "&.Mui-checked": { color: "#6C63FF" } }}
+        />
 
         <p
           className={`${task.completed ? "completed" : ""}`}

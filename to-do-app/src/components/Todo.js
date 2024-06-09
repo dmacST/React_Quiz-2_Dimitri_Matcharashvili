@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Box, Button, Checkbox, Input, Modal } from "@mui/material";
-import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "../icons/edit.svg";
+import DeleteIcon from "../icons/delete.svg";
+import "../App.css";
 
 const deleteIconStyle = {
   cursor: "pointer",
@@ -44,7 +46,6 @@ export const Todo = ({ task, deleteTodo, id }) => {
   return (
     <li style={{ display: "flex", alignItems: "center" }}>
       <div
-        className="Todo"
         style={{
           display: "flex",
           alignItems: "center",
@@ -59,13 +60,15 @@ export const Todo = ({ task, deleteTodo, id }) => {
           sx={{ color: "#6C63FF", "&.Mui-checked": { color: "#6C63FF" } }}
         />
 
-        <p
-          className={`${task.completed ? "completed" : ""}`}
-          onClick={handleOpen}
-        >
-          {task.todoInfo}
-        </p>
-        <DeleteIcon onClick={() => deleteTodo(id)} classes={deleteIconStyle} />
+        <p className={`task ${checked ? "completed" : ""}`}>{task.todoInfo}</p>
+
+        <a className="edit-icon" href="#" onClick={handleOpen}>
+          <img src={EditIcon} alt="Edit Icon" />
+        </a>
+
+        <a className="delete-icon" href="#" onClick={() => deleteTodo(id)}>
+          <img src={DeleteIcon} alt="Delete Icon" />
+        </a>
 
         <Modal
           open={open}
@@ -77,7 +80,7 @@ export const Todo = ({ task, deleteTodo, id }) => {
             <Input
               type="text"
               value={editValue}
-              placeholder="editTodo"
+              placeholder="Edit"
               onChange={(e) => setEditValue(e.target.value)}
             />
 

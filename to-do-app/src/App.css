@@ -23,14 +23,18 @@ body.dark-mode .search-input {
 .App {
   text-align: center; /* Centers the text inside the div */
   padding: 20px;
-  width: 70%;
+  width: 50%;
   margin: 0 auto; /* Centers the div horizontally */
 }
 
 .TodoList {
-  padding: 45px;
   width: 70%;
-  margin: 0 auto;
+  margin: 50px auto;
+}
+
+.task.completed {
+  text-decoration: line-through;
+  color: grey;
 }
 
 ul, ol { padding:0; margin: 0 }
@@ -110,6 +114,23 @@ ul, ol { padding:0; margin: 0 }
 }
 
 
+.Todo {
+  justify-content:left;
+}
 
+/* .edit-icon {
+  margin-right: 10px;
+}
+
+.edit-icon img, .delete-icon img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.task {
+  text-align: left;
+
+} */
 
 

@@ -39,7 +39,8 @@ export const TodoWrapper = ({ todos, searchTodo, deleteTodo }) => {
           )}
         </div>
       </div>
-      <ul>
+
+      <ul className="TodoList">
         {todos?.map((todo) => (
           <Todo
             task={todo}
